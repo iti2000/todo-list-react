@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
+import React from 'react'
 import './App.css';
+import { ContextProvider } from './Context';
+import Form from './Form';
+import FormList from './FormList';
+import {library} from '@fortawesome/fontawesome-svg-core'
+import {faTrash} from '@fortawesome/free-solid-svg-icons'
 
-function App() {
+
+library.add(faTrash);
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <ContextProvider>
+        <Form/>
+        <FormList/>
+      </ContextProvider>
     </div>
-  );
+  )
 }
-
-export default App;
